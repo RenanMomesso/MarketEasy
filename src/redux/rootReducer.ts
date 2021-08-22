@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { combineReducers } from 'redux';
 import userReducer from './user/userReducer';
 import { productReducer } from './produts/productReducer';

@@ -1,9 +1,9 @@
-/* eslint-disable prettier/prettier */
 import { LoginTypes, ActionLogin } from './userAction';
 const initialState = {
   usuario: '',
   senha: '',
   token: '',
+  tokenExpiration: '',
 };
 
 const userReducer = (state = initialState, action: ActionLogin) => {
@@ -11,9 +11,11 @@ const userReducer = (state = initialState, action: ActionLogin) => {
     case LoginTypes.GET_LOGIN_BEGIN:
       return { ...state, loading: true };
     case LoginTypes.GET_LOGIN_SUCCESS:
-      return { ...state, payload: action.payload, loading: false };
+      return { ...state, token: action.payload.userLogin.token, loading: false, tokenExpiration: action.payload.userLogin.tokenExpiration };
     case LoginTypes.GET_LOGIN_FAILURE:
-      return { ...state, payload: action.payload.error, loading: false };
+      return { ...state, error: action.payload.error, loading: false };
+    case LoginTypes.CLEAR_TOKEN:
+      return { ...state, token: '', tokenExpiration: '' };
     default:
       return state;
   }

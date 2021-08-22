@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { StyleSheet, Dimensions } from 'react-native';
 const { width } = Dimensions.get('screen');
 
@@ -57,56 +56,71 @@ const styles = StyleSheet.create({
         height: 28,
         marginLeft: 10,
     },
-    loginButton:{
+    loginButton: {
         width: width - 60,
-        alignSelf:'center',
-        backgroundColor:'#ff2656',
+        alignSelf: 'center',
+        backgroundColor: '#ff2656',
         padding: 5,
-        borderRadius:10,
-        justifyContent:'center',
-        alignItems:'center',
-        marginTop:15,
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 15,
         height: 40,
     },
-    loginButtonText:{
-        fontSize:14,
+    loginButtonText: {
+        fontSize: 14,
         color: '#fff',
-        fontWeight:'bold',
-        textTransform:'uppercase',
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
     },
-    h1:{
-        alignSelf:'center',
-        fontSize:25,
-        fontWeight:'bold',
+    h1: {
+        alignSelf: 'center',
+        fontSize: 25,
+        fontWeight: 'bold',
 
 
     },
-    h4:{
-        alignSelf:'center',
-        fontSize:16,
-        marginVertical:10,
+    h4: {
+        alignSelf: 'center',
+        fontSize: 16,
+        marginVertical: 10,
     },
-    forgotPassword:{
+    forgotPassword: {
         width: width - 60,
-        alignSelf:'center',
-        justifyContent:'flex-end',
-        alignItems:'flex-end',
+        alignSelf: 'center',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
         paddingRight: 5,
     },
-    forgotPasswordText:{
-        color:'black',
+    forgotPasswordText: {
+        color: 'black',
         opacity: 0.5,
     },
-    textRegisterFirst:{
+    textRegisterFirst: {
         fontWeight: 'bold',
         fontSize: width * 0.04,
         color: 'white',
-      },
-      textRegisterLast:{
+    },
+    textRegisterLast: {
         fontWeight: 'bold',
         fontSize: width * 0.03,
         color: 'lightblue',
-      },
+    },
+    bgFooter: {
+        backgroundColor: '#ff2656',
+        width: '100%',
+        height: 120,
+        justifyContent: 'center',
+        paddingBottom: 50,
+        alignItems: 'center',
+    },
+    bgFooterImages: {
+        width: '30%',
+        height: 80,
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+    },
 });
 
 export default styles;

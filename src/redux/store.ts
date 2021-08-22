@@ -15,4 +15,4 @@ const middlewares = [thunk]
 const enchancers = [applyMiddleware(...middlewares)]
 
 export const store:any = createStore(persistedReducer, compose(...enchancers));
-export const persistor = persistStore(store);
+export const persistor = persistStore(store); 

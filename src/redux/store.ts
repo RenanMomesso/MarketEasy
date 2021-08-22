@@ -1,6 +1,18 @@
-import { createStore, applyMiddleware } from 'redux';
+/* eslint-disable prettier/prettier */
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './rootReducer';
-const store = createStore(rootReducer, applyMiddleware(thunk));
+import { persistStore, persistReducer } from 'redux-persist'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default store;
+const persistConfig = {
+    key: 'root',
+    storage: AsyncStorage,
+    whitelist: ['userReducer']
+}
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+const middlewares = [thunk]
+const enchancers = [applyMiddleware(...middlewares)]
+
+export const store:any = createStore(persistedReducer, compose(...enchancers));
+export const persistor = persistStore(store);

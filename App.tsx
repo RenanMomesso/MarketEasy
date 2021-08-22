@@ -1,14 +1,15 @@
 import React from "react";
 import { Provider } from "react-redux";
-import store from "./src/redux/store";
+import { persistor, store } from "./src/redux/store";
 import { NavigationContainer } from "@react-navigation/native";
 import {
   createStackNavigator,
-  StackNavigationOptions,
+  StackNavigationOptions
 } from "@react-navigation/stack";
 
 import Login from "./src/pages/login";
 import Products from "./src/pages/products";
+import { PersistGate } from "redux-persist/integration/react";
 
 export type RootStackParamList = {
   Login: undefined;
@@ -18,11 +19,12 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 const App: React.FC = () => {
   const navigationOptions: StackNavigationOptions = {
-    headerShown: false,
+    headerShown: false
   };
 
   return (
     <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="Login"
@@ -32,6 +34,7 @@ const App: React.FC = () => {
           <Stack.Screen name="Login" component={Login} />
         </Stack.Navigator>
       </NavigationContainer>
+      </PersistGate>
     </Provider>
   );
 };

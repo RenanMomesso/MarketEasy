@@ -43,9 +43,10 @@ const Login: React.FC<loginProps> = ({ navigation }) => {
     state => state.userReducer
   );
 
+  console.log("TOKEN", token)
   const getUserToken = () => {
     if (token) {
-      navigation.reset({ routes: [{ name: "Products" }] });
+      navigation.navigate('Products')
     }
   };
   useFocusEffect(() => {
@@ -65,6 +66,7 @@ const Login: React.FC<loginProps> = ({ navigation }) => {
     setTimeout(() => {
       dispatch(loginUser());
     }, 2000);
+
     Popup.show({
       type: "success",
       title: "Login efetuado com sucesso",
@@ -75,7 +77,7 @@ const Login: React.FC<loginProps> = ({ navigation }) => {
       navigation.navigate("Products");
       setUser("");
       setPass("");
-    }, 1500);
+    }, 2500);
   };
 
   return (

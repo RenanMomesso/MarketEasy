@@ -10,7 +10,7 @@ import {
 import Login from './src/pages/login';
 import Products from './src/pages/products';
 
-type RootStackParamList = {
+export type RootStackParamList = {
   Login: undefined;
   Products: undefined;
 };

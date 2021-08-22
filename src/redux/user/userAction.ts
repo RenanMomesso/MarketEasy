@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import axios from 'axios';
 import { Dispatch } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export enum LoginTypes {
     GET_LOGIN_BEGIN = 'GET_LOGIN_BEGIN',
@@ -23,9 +24,13 @@ export interface LoginSucess {
 
 export type ActionLogin = LoginBegin | LoginFailure | LoginSucess;
 
-interface loginUser {
-    usuario: string;
-    senha: string;
+interface userReturn {
+    response: {
+        status: string;
+        messages: Array<string>;
+        token: string;
+        tokenExpiration: string;
+    }
 }
 
 
@@ -47,7 +52,9 @@ export const getLoginFailure = (error: any): LoginFailure => ({
 export const loginUser = (user = '100000', pass = '123456') => async (dispatch: Dispatch<ActionLogin>) => {
     try {
         dispatch(getLoginBegin());
-        const { data } = await axios.post('http://servicosflex.rpinfo.com.br:9000/v1.1/auth', { usuario: user, senha: pass });
+        const { data } = await axios.post<userReturn>('http://servicosflex.rpinfo.com.br:9000/v1.1/auth', { usuario: user, senha: pass });
+        const userToken = JSON.stringify(data.response.token);
+        await AsyncStorage.setItem('token', userToken);
         dispatch(getLoginSucess(data));
     } catch (error) {
         dispatch(getLoginFailure(error));

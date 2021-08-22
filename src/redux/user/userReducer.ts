@@ -3,7 +3,7 @@ import { LoginTypes, ActionLogin } from './userAction';
 const initialState = {
   usuario: '',
   senha: '',
-  token:'',
+  token: '',
 };
 
 const userReducer = (state = initialState, action: ActionLogin) => {

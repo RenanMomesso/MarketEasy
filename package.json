@@ -10,6 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.15.6",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-navigation/native": "^6.0.1",
     "@react-navigation/stack": "^6.0.1",
@@ -17,9 +18,11 @@
     "react": "17.0.1",
     "react-native": "0.64.1",
     "react-native-gesture-handler": "^1.10.3",
+    "react-native-popup-confirm-toast": "^2.0.2",
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.3.0",
     "react-native-screens": "^3.5.0",
+    "react-native-status-bar-height": "^2.6.0",
     "react-native-svg": "^12.1.1",
     "react-redux": "^7.2.4",
     "redux": "^4.1.1",

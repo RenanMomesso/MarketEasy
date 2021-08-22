@@ -97,6 +97,16 @@ const styles = StyleSheet.create({
         color:'black',
         opacity: 0.5,
     },
+    textRegisterFirst:{
+        fontWeight: 'bold',
+        fontSize: width * 0.04,
+        color: 'white',
+      },
+      textRegisterLast:{
+        fontWeight: 'bold',
+        fontSize: width * 0.03,
+        color: 'lightblue',
+      },
 });
 
 export default styles;

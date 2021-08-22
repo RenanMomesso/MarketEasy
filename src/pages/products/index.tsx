@@ -119,8 +119,10 @@ const Producuts: React.FC<productsProps> = ({ navigation }) => {
       timing: 2000,
     });
     setTimeout(() => {
-      navigation.navigate("Login");
-    }, 2500);
+      navigation.reset({
+        routes:[{name:'Login'}]
+      })
+    }, 2000);
   };
 
   const onRefresh = () => {

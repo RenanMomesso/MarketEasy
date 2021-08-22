@@ -6,7 +6,7 @@ import {
   createStackNavigator,
   StackNavigationOptions
 } from "@react-navigation/stack";
-
+import { Root } from "react-native-popup-confirm-toast";
 import Login from "./src/pages/login";
 import Products from "./src/pages/products";
 import { PersistGate } from "redux-persist/integration/react";
@@ -23,19 +23,21 @@ const App: React.FC = () => {
   };
 
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Login"
-          screenOptions={navigationOptions}
-        >
-          <Stack.Screen name="Products" component={Products} />
-          <Stack.Screen name="Login" component={Login} />
-        </Stack.Navigator>
-      </NavigationContainer>
-      </PersistGate>
-    </Provider>
+    <Root>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="Login"
+              screenOptions={navigationOptions}
+            >
+              <Stack.Screen name="Products" component={Products} />
+              <Stack.Screen name="Login" component={Login} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </PersistGate>
+      </Provider>
+    </Root>
   );
 };
 
